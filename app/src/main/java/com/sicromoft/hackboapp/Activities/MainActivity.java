@@ -46,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         if(FirebaseAuth.getInstance().getCurrentUser() == null){
             startLogInActivity();
+        } else {
+            startProfileActivity();
         }
+
     }
 
     private void startLogInActivity(){
@@ -54,5 +57,12 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("signed_recently", false);
         startActivity(intent);
     }
+
+    private void startProfileActivity(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+
 
 }
