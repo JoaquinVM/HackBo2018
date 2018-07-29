@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.sicromoft.hackboapp.R;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -17,6 +18,12 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        TextView name
+        TextView name;
+        name = findViewById(R.id.profile_name);
+        name.setText(user.getDisplayName());
+    }
+
+    private void updateProfileData(TextView name){
+
     }
 }
