@@ -25,26 +25,26 @@
             android:textSize="40sp"/>
 
         <EditText
-            android:id="@+id/nombre"
+            android:id="@+id/name"
             style="@style/EditTextBox"
             android:hint="Nombre"
             android:inputType="textPersonName|textCapWords"/>
 
         <EditText
-            android:id="@+id/correo"
+            android:id="@+id/email"
             style="@style/EditTextBox"
             android:hint="Correo"
             android:inputType="textEmailAddress"/>
 
 
         <EditText
-            android:id="@+id/pass"
+            android:id="@+id/password"
             style="@style/EditTextBox"
             android:hint="Contraseña"
             android:inputType="textPassword"/>
 
         <EditText
-            android:id="@+id/pass2"
+            android:id="@+id/password2"
             style="@style/EditTextBox"
             android:hint="Repetir contraseña"
             android:inputType="textPassword"/>
@@ -52,7 +52,7 @@
 
 
         <Button
-            android:id="@+id/crearCuenta"
+            android:id="@+id/createAccount"
             style="@style/RoundedButton"
             android:text="CREAR CUENTA"/>
 

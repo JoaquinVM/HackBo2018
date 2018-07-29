@@ -19,7 +19,7 @@
         android:textSize="40sp"/>
 
     <EditText
-        android:id="@+id/Usua"
+        android:id="@+id/user"
         style="@style/EditTextBox"
         android:hint="example@gmail.com"
         android:inputType="textEmailAddress"
@@ -27,7 +27,7 @@
         android:textColorHint="#a2a3a3"/>
 
     <EditText
-        android:id="@+id/Contra"
+        android:id="@+id/password"
         style="@style/EditTextBox"
         android:hint="password"
         android:inputType="textPassword"
