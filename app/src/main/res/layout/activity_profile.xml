@@ -12,16 +12,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp">
 
         <ImageView
             android:id="@+id/profile_picture"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/blank_profile" />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/blank_profile"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/profile_name"
@@ -31,16 +34,48 @@
             android:textAlignment="center"
             android:textSize="36sp" />
 
-        <Button
-            android:id="@+id/logoutButton"
-            style="@style/RoundedButton"
+        <TextView
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
-            android:text="Cerrar Sesión" />
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textSize="28sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/logoutButton"
+            style="@style/RoundedButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Cerrar Sesión"
+            android:layout_centerInParent="true"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/crear_proyecto"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/edit_button" />
     <include
         layout="@layout/element_bottom_navigation"
         android:layout_width="match_parent"

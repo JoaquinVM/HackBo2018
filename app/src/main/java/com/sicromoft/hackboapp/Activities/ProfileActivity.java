@@ -3,26 +3,48 @@ package com.sicromoft.hackboapp.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.sicromoft.hackboapp.Adapters.TagAdapter;
 import com.sicromoft.hackboapp.R;
+
+import java.util.ArrayList;
 
 public class ProfileActivity extends BaseActivity{
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private FirebaseUser user = auth.getCurrentUser();
 
+    private EditText name, description, tag;
+    private Button addTag, createProject;
+    private TagAdapter adapter;
+    private RecyclerView recyclerView;
+    private ArrayList<String> tags;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView name;
+        TextView name, email;
         name = findViewById(R.id.profile_name);
+        email = findViewById(R.id.email);
         name.setText(user.getDisplayName());
+        email.setText(user.getEmail());
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false));
+        adapter = new TagAdapter(this, this);
+
+        tags = new ArrayList<>();
+
 
         Button logout = findViewById(R.id.logoutButton);
         logout.setOnClickListener(new View.OnClickListener() {

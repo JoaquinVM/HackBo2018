@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:addStatesFromChildren="true"
+    android:clickable="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:duplicateParentState="false"
+    app:barrierAllowsGoneWidgets="true"
+    app:chainUseRtl="false"
     tools:context="com.sicromoft.hackboapp.Activities.MainActivity">
-
 
 
     <TextView
@@ -24,20 +29,16 @@
         layout="@layout/element_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_alignParentBottom="true" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/crear_proyecto"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="100dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:fabSize="normal"
-        app:srcCompat="@drawable/circle_button"
-        android:backgroundTint="@color/colorPrimary"/>
+        android:layout_marginEnd="60dp"
+        android:src="@drawable/circle_button" />
+
 </RelativeLayout>

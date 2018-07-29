@@ -3,9 +3,7 @@ package com.sicromoft.hackboapp.Activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +11,10 @@ import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sicromoft.hackboapp.Adapters.TagAdapter;
+import com.sicromoft.hackboapp.Beans.Project;
 import com.sicromoft.hackboapp.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CreateProjectActivity extends AppCompatActivity {
 

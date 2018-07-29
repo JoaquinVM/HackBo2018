@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sicromoft.hackboapp.Activities.CreateProjectActivity;
+import com.sicromoft.hackboapp.Activities.ProfileActivity;
 import com.sicromoft.hackboapp.R;
 
 import java.util.ArrayList;
@@ -22,11 +23,18 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagHolder>{
     private ArrayList<String> tags = new ArrayList<>();
     private Context context;
     private LayoutInflater inflater;
-    private CreateProjectActivity activity;
+    private CreateProjectActivity createProjectActivity;
+    private ProfileActivity profileActivity;
 
     public TagAdapter(Context context, CreateProjectActivity activity){
         this.context = context;
-        this.activity = activity;
+        this.createProjectActivity = activity;
+        inflater = LayoutInflater.from(context);
+    }
+
+    public TagAdapter(Context context, ProfileActivity activity){
+        this.context = context;
+        this.profileActivity = activity;
         inflater = LayoutInflater.from(context);
     }
 
@@ -43,7 +51,7 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TagAdapter.this.activity.deleteFromList(name);
+                TagAdapter.this.createProjectActivity.deleteFromList(name);
             }
         });
     }

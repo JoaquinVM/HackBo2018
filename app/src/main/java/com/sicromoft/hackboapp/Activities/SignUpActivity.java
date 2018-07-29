@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.sicromoft.hackboapp.Beans.User;
 import com.sicromoft.hackboapp.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -49,6 +52,8 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+
+        storeUser(name.getText().toString() , email.getText().toString());
     }
 
     private boolean validateForm() {
@@ -124,5 +129,12 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void storeUser(String name, String email){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Users");
+        User u = new User(name,email);
+        myRef.push().setValue(u);
     }
 }

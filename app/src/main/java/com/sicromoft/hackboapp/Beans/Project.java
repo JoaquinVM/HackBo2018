@@ -1,4 +1,4 @@
-package com.sicromoft.hackboapp.Activities;
+package com.sicromoft.hackboapp.Beans;
 
 import java.util.List;
 

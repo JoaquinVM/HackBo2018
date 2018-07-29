@@ -21,11 +21,12 @@
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.SignUpActivity" />
         <activity android:name=".Activities.ProfileActivity" />
-        <activity android:name=".Activities.FavoritesActivity"></activity>
-        <activity android:name=".Activities.CreateProjectActivity"></activity>
+        <activity android:name=".Activities.FavoritesActivity" />
+        <activity android:name=".Activities.CreateProjectActivity" />
         <activity
             android:name=".Activities.BaseActivity"
-            android:label="@string/title_activity_base"></activity>
+            android:label="@string/title_activity_base" />
+        <activity android:name=".Activities.EditProfileActivity"></activity>
     </application>
 
 </manifest>

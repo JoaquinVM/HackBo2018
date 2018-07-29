@@ -1,41 +1,33 @@
 package com.sicromoft.hackboapp.Beans;
 
+import java.util.List;
+import java.util.ListIterator;
+
 public class User {
 
     private String name;
     private String email;
-    private String password;
-    private String[] skills;
+    private List<String> skills;
+
+    public User(String name, String email){
+        this.name = name;
+        this.email = email;
+    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String[] getSkills() {
+    public List<String> getSkills() {
         return skills;
     }
 
-    public void setSkills(String[] skills) {
+    public void setSkills(List<String> skills) {
         this.skills = skills;
     }
+
 }
