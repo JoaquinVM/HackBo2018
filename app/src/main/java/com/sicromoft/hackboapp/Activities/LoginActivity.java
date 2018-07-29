@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void startApp() {
         Log.d("LoginActivity", auth.getCurrentUser().getUid());
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 

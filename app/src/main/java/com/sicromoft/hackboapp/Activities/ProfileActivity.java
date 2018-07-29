@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.sicromoft.hackboapp.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BaseActivity{
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private FirebaseUser user = auth.getCurrentUser();
@@ -19,7 +19,6 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
 
         TextView name;
         name = findViewById(R.id.profile_name);
@@ -35,5 +34,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_profile;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_profile;
+    }
+
+
 
 }
