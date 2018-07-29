@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.sicromoft.hackboapp.Activities.CreateProjectActivity;
 import com.sicromoft.hackboapp.Activities.ProfileActivity;
+import com.sicromoft.hackboapp.Beans.Deletable;
 import com.sicromoft.hackboapp.R;
 
 import java.util.ArrayList;
@@ -17,21 +18,21 @@ import java.util.ArrayList;
  * Created by Joaco99 on 29/07/2018.
  */
 
-public class CreateProjectTagAdapter extends RecyclerView.Adapter<CreateProjectTagAdapter.TagHolder>{
+public class DeletableTagAdapter extends RecyclerView.Adapter<DeletableTagAdapter.TagHolder>{
 
     private ArrayList<String> tags = new ArrayList<>();
     private Context context;
     private LayoutInflater inflater;
-    private CreateProjectActivity createProjectActivity;
+    private Deletable createProjectActivity;
     private ProfileActivity profileActivity;
 
-    public CreateProjectTagAdapter(Context context, CreateProjectActivity activity){
+    public DeletableTagAdapter(Context context, Deletable activity){
         this.context = context;
         this.createProjectActivity = activity;
         inflater = LayoutInflater.from(context);
     }
 
-    public CreateProjectTagAdapter(Context context, ProfileActivity activity){
+    public DeletableTagAdapter(Context context, ProfileActivity activity){
         this.context = context;
         this.profileActivity = activity;
         inflater = LayoutInflater.from(context);
@@ -50,7 +51,7 @@ public class CreateProjectTagAdapter extends RecyclerView.Adapter<CreateProjectT
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreateProjectTagAdapter.this.createProjectActivity.deleteFromList(name);
+                DeletableTagAdapter.this.createProjectActivity.deleteFromList(name);
             }
         });
     }

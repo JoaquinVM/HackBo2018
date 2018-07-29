@@ -10,17 +10,18 @@ import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.sicromoft.hackboapp.Adapters.CreateProjectTagAdapter;
+import com.sicromoft.hackboapp.Adapters.DeletableTagAdapter;
+import com.sicromoft.hackboapp.Beans.Deletable;
 import com.sicromoft.hackboapp.Beans.Project;
 import com.sicromoft.hackboapp.R;
 
 import java.util.ArrayList;
 
-public class CreateProjectActivity extends AppCompatActivity {
+public class CreateProjectActivity extends AppCompatActivity implements Deletable{
 
     private EditText name, description, tag, overview;
     private Button addTag, createProject;
-    private CreateProjectTagAdapter adapter;
+    private DeletableTagAdapter adapter;
     private RecyclerView recyclerView;
     private ArrayList<String> tags;
 
@@ -38,7 +39,7 @@ public class CreateProjectActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false));
-        adapter = new CreateProjectTagAdapter(this, this);
+        adapter = new DeletableTagAdapter(this, this);
 
         tags = new ArrayList<>();
 
@@ -62,7 +63,7 @@ public class CreateProjectActivity extends AppCompatActivity {
                         description.getText().toString(), tags);
                 myRef.push().setValue(p);
                 onBackPressed();
-            }
+        }
         });
 
     }
