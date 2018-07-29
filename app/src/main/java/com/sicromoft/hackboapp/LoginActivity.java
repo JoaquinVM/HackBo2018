@@ -1,14 +1,16 @@
 package com.sicromoft.hackboapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText user, password;
     private TextView join;
+    private Button logButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         user = findViewById(R.id.user);
         password = findViewById(R.id.password);
         join = findViewById(R.id.joinTextView);
+        logButton = findViewById(R.id.logButton);
 
         join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +45,19 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        auth.signInWithEmailAndPassword(user.getText().toString(), password.getText().toString())
+        logButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(validateForm()){
+                    logIn(user.getText().toString(), password.getText().toString());
+                }
+            }
+        });
+
+    }
+
+    private void logIn(String email, String password){
+        auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -50,15 +66,10 @@ public class LoginActivity extends AppCompatActivity {
                             startApp();
                         }else{
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            showDialog("Error", "No se pudo verificar el correo o contraseña");
                         }
                     }
                 });
-    }
-
-    private void logIn(String email, String pasword){
-
     }
 
     private boolean validateForm() {
@@ -78,6 +89,20 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("LoginActivity", auth.getCurrentUser().getUid());
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    private void showDialog(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message)
+                .setTitle(title)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Log.d(TAG, "User agrees");
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }
