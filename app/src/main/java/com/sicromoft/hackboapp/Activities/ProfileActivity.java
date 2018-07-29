@@ -23,7 +23,4 @@ public class ProfileActivity extends AppCompatActivity {
         name.setText(user.getDisplayName());
     }
 
-    private void updateProfileData(TextView name){
-
-    }
 }
