@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.sicromoft.hackboapp.SignUpActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Unete a nuestra comunidad"
+            android:textAlignment="center"
+            android:textAppearance="@style/Theme.AppCompat.Light"
+            android:textSize="40sp"/>
+
+        <EditText
+            android:id="@+id/nombre"
+            style="@style/EditTextBox"
+            android:hint="Nombre"
+            android:inputType="textPersonName|textCapWords"/>
+
+        <EditText
+            android:id="@+id/correo"
+            style="@style/EditTextBox"
+            android:hint="Correo"
+            android:inputType="textEmailAddress"/>
+
+
+        <EditText
+            android:id="@+id/pass"
+            style="@style/EditTextBox"
+            android:hint="Contraseña"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/pass2"
+            style="@style/EditTextBox"
+            android:hint="Repetir contraseña"
+            android:inputType="textPassword"/>
+
+
+
+        <Button
+            android:id="@+id/crearCuenta"
+            style="@style/RoundedButton"
+            android:text="CREAR CUENTA"/>
+
+    </LinearLayout>
+
+
+</ScrollView>
