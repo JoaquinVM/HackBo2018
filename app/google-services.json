@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "206482314587",
+    "firebase_url": "https://hackbo2018-b4910.firebaseio.com",
+    "project_id": "hackbo2018-b4910",
+    "storage_bucket": "hackbo2018-b4910.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206482314587:android:539ab6a291c08888",
+        "android_client_info": {
+          "package_name": "com.sicromoft.hackboapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206482314587-ot7efulaef85r8vnbqgna59r7v4q5pg4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpsGLA1tOhh7aFUg-9OlM2KNoQ50xTN_c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
