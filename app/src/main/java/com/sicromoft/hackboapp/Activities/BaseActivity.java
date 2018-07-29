@@ -29,7 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, FavoritesActivity.class));
             }
             finish();
-        }, 300);
+        }, 0);
         return true;
     }
 

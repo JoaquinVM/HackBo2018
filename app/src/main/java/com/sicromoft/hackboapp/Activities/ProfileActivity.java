@@ -2,8 +2,10 @@ package com.sicromoft.hackboapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +14,12 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sicromoft.hackboapp.Adapters.DeletableTagAdapter;
+import com.sicromoft.hackboapp.Adapters.TagAdapter;
 import com.sicromoft.hackboapp.R;
 
 import java.util.ArrayList;
@@ -22,12 +29,11 @@ public class ProfileActivity extends BaseActivity{
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private FirebaseUser user = auth.getCurrentUser();
 
-    private EditText name, description, tag;
-    private Button addTag;
+
     private ImageView addSkills;
-    private DeletableTagAdapter adapter;
+    private TagAdapter adapter;
     private RecyclerView recyclerView;
-    private ArrayList<String> tags;
+    private ArrayList<String> skills;
 
 
     @Override
@@ -40,11 +46,29 @@ public class ProfileActivity extends BaseActivity{
         name.setText(user.getDisplayName());
         email.setText(user.getEmail());
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView2);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false));
-        adapter = new DeletableTagAdapter(this, this);
+        adapter = new TagAdapter(this);
+        skills = new ArrayList<>();
 
-        tags = new ArrayList<>();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.getReference("Users").child(user.getUid()).child("skills").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()
+                     ) {
+                    skills.add(snapshot.getValue(String.class));
+                }
+                adapter.setListContent(skills);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         addSkills = findViewById(R.id.edit_profile);
         addSkills.setOnClickListener(new View.OnClickListener() {
