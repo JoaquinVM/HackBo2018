@@ -1,10 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.sicromoft.hackboapp.Activities.CreateProjectActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.sicromoft.hackboapp.Activities.CreateProjectActivity">
+    android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Crear nuevo Proyecto"
+            android:textAlignment="center"
+            android:textAppearance="@style/Theme.AppCompat.Light"
+            android:textSize="40sp"/>
+
+        <EditText
+            android:id="@+id/name"
+            style="@style/EditTextBox"
+            android:hint="Nombre del Proyecto"
+            android:inputType="textMultiLine"
+            android:maxLength="20"/>
+
+        <EditText
+            android:id="@+id/description"
+            style="@style/EditTextBox"
+            android:hint="Descripción del Proyecto"
+            android:inputType="textMultiLine"
+            android:textAlignment="textStart"
+            android:minLines="5"
+            android:maxLength="300"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <EditText
+                android:id="@+id/tag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                style="@style/EditTextBox"
+                android:hint="Etiqueta"
+                android:inputType="textCapCharacters"
+                android:maxLength="6"/>
+
+            <Button
+                android:id="@+id/addTagButton"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:text="Añadir"
+                android:textSize="20sp"
+                style="@style/RoundedButton"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            />
+
+        <Button
+            android:id="@+id/createProject"
+            style="@style/RoundedButton"
+            android:text="CREAR PROYECTO"/>
+
+    </LinearLayout>
+
+
+</ScrollView>
