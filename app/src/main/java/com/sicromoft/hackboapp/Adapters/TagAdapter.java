@@ -73,8 +73,6 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagHolder>{
 
         public TagHolder(View itemView) {
             super(itemView);
-            this.itemView = itemView;
-            name = itemView.findViewById(R.id.nameTag);
         }
     }
 }
