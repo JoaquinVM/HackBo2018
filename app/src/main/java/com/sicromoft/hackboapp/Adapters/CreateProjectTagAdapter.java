@@ -72,6 +72,8 @@ public class CreateProjectTagAdapter extends RecyclerView.Adapter<CreateProjectT
 
         public TagHolder(View itemView) {
             super(itemView);
+            this.itemView = itemView;
+            name = itemView.findViewById(R.id.nameTag);
         }
     }
 }

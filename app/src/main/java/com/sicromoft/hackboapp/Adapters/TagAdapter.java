@@ -12,6 +12,7 @@ import com.sicromoft.hackboapp.Activities.ProfileActivity;
 import com.sicromoft.hackboapp.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Joaco99 on 29/07/2018.
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 
 public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagHolder>{
 
-    private ArrayList<String> tags = new ArrayList<>();
+    private List<String> tags = new ArrayList<>();
     private Context context;
     private LayoutInflater inflater;
 
@@ -45,18 +46,18 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagHolder>{
         return tags.size();
     }
 
-    public void setListContent(ArrayList<String> tags) {
+    public void setListContent(List<String> tags) {
         this.tags = tags;
         notifyItemRangeChanged(0, tags.size());
     }
 
     static class TagHolder extends RecyclerView.ViewHolder {
 
-        private View itemView;
         private TextView name;
 
         public TagHolder(View itemView) {
             super(itemView);
+            name = itemView.findViewById(R.id.nameTag);
         }
     }
 }

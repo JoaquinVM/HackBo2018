@@ -1,8 +1,9 @@
 package com.sicromoft.hackboapp.Beans;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Project{
+public class Project implements Serializable{
     String name;
     String overview;
     String description;

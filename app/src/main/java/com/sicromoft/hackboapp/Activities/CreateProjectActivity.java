@@ -37,7 +37,7 @@ public class CreateProjectActivity extends AppCompatActivity {
         createProject = findViewById(R.id.createProject);
 
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false));
         adapter = new CreateProjectTagAdapter(this, this);
 
         tags = new ArrayList<>();
