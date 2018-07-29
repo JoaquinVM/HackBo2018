@@ -1,4 +1,4 @@
-package com.sicromoft.hackboapp;
+package com.sicromoft.hackboapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.sicromoft.hackboapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         if(FirebaseAuth.getInstance().getCurrentUser() == null){
             startLogInActivity();
+        } else {
+            startProfileActivity();
         }
+
     }
 
     private void startLogInActivity(){
@@ -53,5 +57,12 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("signed_recently", false);
         startActivity(intent);
     }
+
+    private void startProfileActivity(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+
 
 }
