@@ -1,4 +1,4 @@
-package com.sicromoft.hackboapp;
+package com.sicromoft.hackboapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.sicromoft.hackboapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
