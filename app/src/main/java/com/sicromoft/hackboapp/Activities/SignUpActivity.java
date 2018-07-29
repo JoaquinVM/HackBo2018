@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.sicromoft.hackboapp.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -75,7 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            startLogInActivity();
+                            updateUserInfo();
                         }else{
                             FirebaseAuthException e = (FirebaseAuthException) task.getException();
                             showDialog("Error de verificación", "Failed Registration: " + e.getMessage());
@@ -102,5 +104,25 @@ public class SignUpActivity extends AppCompatActivity {
                 });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void updateUserInfo() {
+        FirebaseUser user = auth.getCurrentUser();
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(name.getText().toString())
+                .build();
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("SignUpActivity", "User profile updated.");
+                            startLogInActivity();
+                        } else {
+                            Log.d("SignUpActivity", "Couldnt update info");
+                        }
+                    }
+                });
     }
 }

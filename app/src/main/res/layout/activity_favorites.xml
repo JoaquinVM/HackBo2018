@@ -6,7 +6,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sicromoft.hackboapp.Activities.MainActivity">
+    tools:context="com.sicromoft.hackboapp.Activities.FavoritesActivity">
 
 
     <android.support.design.widget.BottomNavigationView
