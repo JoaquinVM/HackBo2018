@@ -5,9 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.sicromoft.hackboapp.Adapters.TagAdapter;
+import com.sicromoft.hackboapp.Adapters.CreateProjectTagAdapter;
 import com.sicromoft.hackboapp.R;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private EditText skill;
     private Button addSkill;
-    private TagAdapter adapter;
+    private CreateProjectTagAdapter adapter;
     private RecyclerView recyclerView;
     private ArrayList<String> tags;
 

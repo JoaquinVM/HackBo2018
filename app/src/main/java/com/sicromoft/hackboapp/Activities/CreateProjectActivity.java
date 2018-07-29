@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.sicromoft.hackboapp.Adapters.TagAdapter;
+import com.sicromoft.hackboapp.Adapters.CreateProjectTagAdapter;
 import com.sicromoft.hackboapp.Beans.Project;
 import com.sicromoft.hackboapp.R;
 
@@ -18,9 +18,9 @@ import java.util.ArrayList;
 
 public class CreateProjectActivity extends AppCompatActivity {
 
-    private EditText name, description, tag;
+    private EditText name, description, tag, overview;
     private Button addTag, createProject;
-    private TagAdapter adapter;
+    private CreateProjectTagAdapter adapter;
     private RecyclerView recyclerView;
     private ArrayList<String> tags;
 
@@ -30,6 +30,7 @@ public class CreateProjectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_project);
 
         name = findViewById(R.id.name);
+        overview = findViewById(R.id.overview);
         description = findViewById(R.id.description);
         tag = findViewById(R.id.tag);
         addTag = findViewById(R.id.addTagButton);
@@ -37,7 +38,7 @@ public class CreateProjectActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false));
-        adapter = new TagAdapter(this, this);
+        adapter = new CreateProjectTagAdapter(this, this);
 
         tags = new ArrayList<>();
 
@@ -57,7 +58,8 @@ public class CreateProjectActivity extends AppCompatActivity {
         createProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Project p = new Project(name.getText().toString(), description.getText().toString(), tags);
+                Project p = new Project(name.getText().toString(), overview.getText().toString(),
+                        description.getText().toString(), tags);
                 myRef.push().setValue(p);
                 onBackPressed();
             }

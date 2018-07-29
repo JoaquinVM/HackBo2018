@@ -29,15 +29,23 @@
             android:id="@+id/name"
             style="@style/EditTextBox"
             android:hint="Nombre del Proyecto"
-            android:inputType="textMultiLine"
+            android:inputType="textCapCharacters"
             android:maxLength="20"/>
+
+        <EditText
+            android:id="@+id/overview"
+            style="@style/EditTextBox"
+            android:hint="Descripción Breve"
+            android:inputType="textMultiLine"
+            android:maxLength="100"
+            android:minLines="2"/>
 
         <EditText
             android:id="@+id/description"
             style="@style/EditTextBox"
-            android:hint="Descripción del Proyecto"
+            android:hint="Descripción Detallada"
             android:inputType="textMultiLine"
-            android:textAlignment="textStart"
+            android:textAlignment="viewStart"
             android:minLines="5"
             android:maxLength="300"/>
 

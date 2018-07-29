@@ -17,14 +17,23 @@ import java.util.ArrayList;
  * Created by Joaco99 on 29/07/2018.
  */
 
-public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagHolder>{
+public class CreateProjectTagAdapter extends RecyclerView.Adapter<CreateProjectTagAdapter.TagHolder>{
 
     private ArrayList<String> tags = new ArrayList<>();
     private Context context;
     private LayoutInflater inflater;
+    private CreateProjectActivity createProjectActivity;
+    private ProfileActivity profileActivity;
 
-    public TagAdapter(Context context){
+    public CreateProjectTagAdapter(Context context, CreateProjectActivity activity){
         this.context = context;
+        this.createProjectActivity = activity;
+        inflater = LayoutInflater.from(context);
+    }
+
+    public CreateProjectTagAdapter(Context context, ProfileActivity activity){
+        this.context = context;
+        this.profileActivity = activity;
         inflater = LayoutInflater.from(context);
     }
 
@@ -38,6 +47,12 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagHolder>{
     public void onBindViewHolder(TagHolder holder, int position) {
         final String name = tags.get(position);
         holder.name.setText(name);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CreateProjectTagAdapter.this.createProjectActivity.deleteFromList(name);
+            }
+        });
     }
 
     @Override
